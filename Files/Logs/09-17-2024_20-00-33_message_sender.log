@@ -1,0 +1,23 @@
+2024-09-17 20:00:34,806 - INFO - Whatsapp_software.py._kill_whatsapp():34 - Killed WhatsApp process with PID 13472
+2024-09-17 20:00:34,915 - INFO - Whatsapp_software.py._start_whatsapp():49 - Starting WhatsApp
+2024-09-17 20:00:39,946 - INFO - Whatsapp_software.py._start_whatsapp():53 - WhatsApp started successfully.
+2024-09-17 20:00:39,946 - INFO - Whatsapp_software.py._connect_whatsapp():72 - Connecting to WhatsApp
+2024-09-17 20:00:40,046 - INFO - Whatsapp_software.py._connect_whatsapp():74 - Connected to WhatsApp
+2024-09-17 20:00:40,121 - INFO - Whatsapp_software.py._connect_whatsapp():77 - WhatsApp is on screen and in focus.
+2024-09-17 20:00:45,155 - INFO - Message_sender.py.main():110 - # Total 1 Excels
+2024-09-17 20:00:45,155 - INFO - Message_sender.py.process_excel_file():49 - # Processing Input.xlsx
+2024-09-17 20:00:45,594 - INFO - Whatsapp_software.py.send_message_with_attachment():189 - Sending message with attachment to Divyam : 9594652296
+2024-09-17 20:00:53,153 - ERROR - Whatsapp_software.py._perform_click():143 - Control with title 'Chat' or auto_id 'None' not found
+2024-09-17 20:00:53,153 - INFO - Whatsapp_software.py.send_message_with_attachment():198 - Pressing ESC
+2024-09-17 20:00:54,767 - INFO - Message_sender.py.process_excel_file():67 - Message sent to: 1
+2024-09-17 20:00:55,269 - INFO - Whatsapp_software.py.send_message_with_attachment():189 - Sending message with attachment to Divyam : 9054413199
+2024-09-17 20:01:05,145 - INFO - Whatsapp_software.py.send_message_with_attachment():221 - Message with attachment sent to Divyam : 9054413199
+2024-09-17 20:01:05,145 - INFO - Message_sender.py.process_excel_file():67 - Message sent to: 2
+2024-09-17 20:01:05,645 - ERROR - Message_sender.py.process_excel_file():70 - # Mobile number invalid length of number: 9 : 771096833
+2024-09-17 20:01:05,645 - INFO - Whatsapp_software.py.send_message_with_attachment():189 - Sending message with attachment to Divyam : 9594652296
+2024-09-17 20:01:12,520 - ERROR - Whatsapp_software.py._perform_click():143 - Control with title 'Chat' or auto_id 'None' not found
+2024-09-17 20:01:12,520 - INFO - Whatsapp_software.py.send_message_with_attachment():198 - Pressing ESC
+2024-09-17 20:01:14,125 - INFO - Message_sender.py.process_excel_file():67 - Message sent to: 4
+2024-09-17 20:01:14,626 - ERROR - Message_sender.py.process_excel_file():70 - # Mobile number invalid length of number: 9 : 998722570
+2024-09-17 20:01:14,881 - INFO - Message_sender.py.main():123 - Errors recorded in file: C:\Users\Divyam Shah\OneDrive\Desktop\Dynamic Labz\Utilities\whatsapp_bot\Files\Error\Error_09-17-2024_20-01-14.xlsx
+2024-09-17 20:01:19,898 - INFO - Whatsapp_software.py._kill_whatsapp():34 - Killed WhatsApp process with PID 25388

@@ -1,12 +1,14 @@
+import os
+import pdb
+import time
+import shutil
+import datetime
+import pandas as pd
+
 from library.Config import Config
 from library.GetLogger import GetLogger
 from library.Whatsapp_software import WhatsAppHandler
-from library.summary_window import show_summary  # Import the summary utility
-import os
-import pandas as pd
-import time
-import datetime
-import shutil
+from library.summary_window import show_summary
 
 
 def move_file_to_processed(unprocessed_path, processed_path, file_name):
@@ -20,12 +22,35 @@ def move_file_to_processed(unprocessed_path, processed_path, file_name):
     shutil.move(os.path.join(unprocessed_path, file_name), process_file_path)
     return process_file_path
 
+def restart_whatsapp_if_required(ind, whatsapp_handler, config, logger):
+    try:
+        if ind % int(config.whatsapp_config.restart_whatsapp_index) == 0 and ind !=0 :
+            whatsapp_handler._kill_whatsapp()
+            time.sleep(5)
+            logger.info('# Restarting Whatsapp')
+            if not whatsapp_handler._start_whatsapp():
+                logger.error("Failed to start WhatsApp.")
+                return False
+
+            if not whatsapp_handler._connect_whatsapp():
+                logger.error("Failed to connect to WhatsApp.")
+                return False
+            
+            time.sleep(5)
+        return True
+    
+    except Exception as e:
+        logger.error(e, exc_info=True)
+        return False
+
 
 def process_excel_file(excel_file, whatsapp_handler, config, logger):
     """Process an individual Excel file to send messages."""
+    logger.info(f'# Processing {excel_file}')
     error_df_lst = []
     excel_df = pd.read_excel(os.path.join(config.paths.unprocessed_path, excel_file))
     for ind, row in excel_df.iterrows():
+        restart_whatsapp_if_required(ind=ind, whatsapp_handler=whatsapp_handler, config=config, logger=logger)
         if len(str(row['Number'])) == 10:
             if str(config.whatsapp_config.message_with_attachemnt).lower() == 'true':
                 message_sent, sending_status = whatsapp_handler.send_message_with_attachment(
@@ -81,6 +106,8 @@ def main():
     excel_files = os.listdir(config.paths.unprocessed_path)
     all_errors = []
     total_messages_sent = 0
+
+    logger.info(f'# Total {len(excel_files)} Excels')
 
     for excel_file in excel_files:
         error_df_lst = process_excel_file(excel_file, whatsapp_handler, config, logger)

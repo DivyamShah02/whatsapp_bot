@@ -1,7 +1,8 @@
-pyautogui
-pyperclip
-configparser
-pandas
-requests
-pywinauto
-psutil
+PyAutoGUI==0.9.54
+pyperclip==1.9.0
+configpar==7.1.0
+pandas==2.2.2
+requests==2.32.3
+pywinauto==0.6.8
+psutil==6.0.0
+openpyxl==3.1.5
